@@ -12,3 +12,21 @@ img{
 body{
     background-color: #ACE1AF;
 }
+
+p{
+    font-weight: bold;
+}
+
+#add-it{
+    margin-left: 20px
+}
+
+#eat-it{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#eaten{
+    color:gray;
+    text-decoration: line-through;
+}

@@ -1,38 +1,35 @@
 <div class="container">
     <div class="jumbotron">
-        <h1> <img src="/img/burgericon.png" alt="Burger">
-            Eat Da Burger</h1>
+        <h1> <img src="/img/burgericon.png" alt="Burger">Eat Da Burger</h1>
     </div>
 
     <div class="container">
         <form class="create-update-form" action="/" method="POST">
             <div class="form-group">
-                <label for="ca">Make a Burger</label>
-                <input type="text" id="burger" name="burger_name">
+                <label for="ca">Create a Burger</label>
+                <input type="text" id="burger" name="burger_name" placeholder="  yummy burger">
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Add It!</button>
+            <button type="submit" class="btn btn-success btn-sm" id="add-it">Add It!</button>
         </form>
     </div>
     <br>
     <div class="panel panel-default col-md-5" style="padding: 0px">
         <div class="panel-heading">
-            <h3>Uneaten Burgers</h3>
+            <h3>Ready to Eat</h3>
         </div>
         <div class="panel-body">
-            <ul>
-                {{#each burger}}
-                {{#unless this.devoured}}
-                <li>
-                    {{this.id}}<span>.</span> {{this.burger_name}}
+            {{#each burger}}
+            {{#unless this.devoured}}
+            <p>
+                {{this.id}}<span>.</span> {{this.burger_name}}
 
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devour" value="true">
-                        <button type="submit" class="btn btn-warning btn-sm">Eat It!</button>
-                    </form>
-                </li>
-                {{/unless}}
-                {{/each}}
-            </ul>
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devour" value="true">
+                    <button id="eat-it" type="submit" class="btn btn-warning btn-sm">Eat It!</button>
+                </form>
+            </p>
+            {{/unless}}
+            {{/each}}
         </div>
     </div>
 
@@ -41,19 +38,16 @@
 
     <div class="panel panel-default col-md-5" style="padding: 0px">
         <div class="panel-heading">
-            <h3>Devoured Burgers</h3>
+            <h3>Already Eaten</h3>
         </div>
-        <div class="panel-body">
-            <ul>
-                {{#each burger}}
+        <div class="panel-body" id="eaten">
+            {{#each burger}}
+            <p>
                 {{#if this.devoured}}
-                <li>
-                    {{this.id}}<span>.</span> {{this.burger_name}}
-
-                </li>
+                {{this.id}}<span>.</span> {{this.burger_name}}
                 {{/if}}
-                {{/each}}
-            </ul>
+            </p>
+            {{/each}}
 
         </div>
     </div>
