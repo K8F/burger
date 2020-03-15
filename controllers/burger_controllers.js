@@ -6,6 +6,12 @@ var burger = require("../models/burger.js");
 // Our GET request to grab database contents
 router.get("/", function(req, res) {
 	burger.selectAll(function(data) {
+        var hbsObject={
+            burgers:data
+        };
+        console.log(hbsObject);
+
+        res.render("index", hbsObject);
 	
 	});
 });

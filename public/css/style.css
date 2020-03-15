@@ -1,0 +1,11 @@
+img{
+    vertical-align: middle;
+    width: 200px;
+    padding: 10px
+}
+
+
+body{
+    background-color: #f9f5d2;
+    background-image: url("../img/mini-burger-on-plate-1474930.jpg")
+}
