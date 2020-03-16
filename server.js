@@ -7,8 +7,8 @@ var router = require("./controllers/burger_controllers");
 var path = require("path");
 
 //express setup
-var app=express();
-var PORT=process.env.PORT || 8080;
+var app= express();
+var PORT= process.env.PORT || 8080;
 
 //middleware
 app.use(methodOverride("_method"));
